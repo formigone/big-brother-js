@@ -35,7 +35,20 @@ BB.Session.prototype.start = function(){
         this.active = true;
         this.tick();
     }
-}
+};
+
+BB.Session.prototype.stop = function(){
+    this.active = false;
+};
+
+BB.Session.prototype.tick = function(){
+};
+
+BB.Session.prototype.save = function(){
+};
+
+BB.Session.prototype.upload = function(){
+};
 
 /**
  *
