@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JSClosureLinterConfiguration">
+    <config-file>/usr/local/google-closure/gjslint.config</config-file>
+  </component>
+  <component name="JSHintConfiguration" version="2.4.1" use-config-file="false">
+    <option bitwise="true" />
+    <option camelcase="true" />
+    <option curly="true" />
+    <option eqeqeq="true" />
+    <option forin="true" />
+    <option immed="true" />
+    <option latedef="true" />
+    <option newcap="true" />
+    <option noarg="true" />
+    <option noempty="true" />
+    <option nonew="true" />
+    <option plusplus="true" />
+    <option regexp="true" />
+    <option undef="false" />
+    <option unused="true" />
+    <option strict="false" />
+    <option trailing="true" />
+    <option asi="false" />
+    <option boss="false" />
+    <option debug="false" />
+    <option eqnull="false" />
+    <option es5="false" />
+    <option esnext="false" />
+    <option evil="false" />
+    <option expr="false" />
+    <option funcscope="false" />
+    <option globalstrict="false" />
+    <option iterator="false" />
+    <option lastsemic="false" />
+    <option laxbreak="false" />
+    <option laxcomma="false" />
+    <option loopfunc="false" />
+    <option multistr="false" />
+    <option proto="false" />
+    <option onecase="false" />
+    <option regexdash="false" />
+    <option scripturl="false" />
+    <option smarttabs="false" />
+    <option shadow="false" />
+    <option sub="false" />
+    <option supernew="false" />
+    <option validthis="false" />
+    <option browser="true" />
+    <option couch="false" />
+    <option devel="false" />
+    <option dojo="false" />
+    <option jquery="true" />
+    <option mootools="false" />
+    <option node="false" />
+    <option nonstandard="false" />
+    <option prototypejs="false" />
+    <option rhino="false" />
+    <option worker="false" />
+    <option wsh="false" />
+    <option yui="false" />
+    <option nomen="false" />
+    <option onevar="false" />
+    <option passfail="false" />
+    <option white="false" />
+    <option maxerr="50" />
+  </component>
+  <component name="JSLintConfiguration" json="true">
+    <option indent="3" />
+    <option maxerr="50" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>HTML</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>HtmlUnknownTag</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectRootManager" version="2" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
+</project>
+
