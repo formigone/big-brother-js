@@ -81,7 +81,11 @@ BB.Session.prototype.tick = function(){
  * Send recording to backend server
  */
 BB.Session.prototype.upload = function(){
-    console.log(this.toString());
+    var xhr = new XMLHttpRequest();
+
+    xhr.open('POST', '/save.php', true);
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xhr.send('recording=' + this.toString());
 };
 
 /**
