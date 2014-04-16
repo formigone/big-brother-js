@@ -15,7 +15,7 @@ BB.Session = function(fps, title, url) {
     this.fps = fps || 3;
 
     /** @type {number} */
-    this.tick = this.fps * 1000;
+    this.TICK = this.fps * 1000;
 
     /** @type {string} */
     this.title = title || BB.Session.getPageTitle();
@@ -23,7 +23,7 @@ BB.Session = function(fps, title, url) {
     /** @type {string} */
     this.url = url || BB.Session.getPageUrl();
 
-    /** @type {Array<BB.Frame>} */
+    /** @type {Array.<BB.Frame>} */
     this.frames = [];
 
     /** @type {boolean} */
@@ -55,8 +55,12 @@ BB.Session.prototype.upload = function(){
  * @returns {string}
  */
 BB.Session.getPageTitle = function() {
-    // TODO: attempt to extract <title> value
-    var title = '{{page title}}';
+    var el = document.getElementsByTagName('title');
+    var title = 'Untitled document';
+
+    if (el.length > 0) {
+        title = el[0].textContent;
+    }
 
     return title;
 };

@@ -10,8 +10,10 @@
    <script src="deps.js"></script>
    <script src="app.js"></script>
 <?php else: ?>
-   <script src="app.comp.js"></script>
+<!--   <script src="app.comp.js"></script>-->
 <?php endif; ?>
+<!--<script src="bb.min.js"></script>-->
+<!--<script src="app.js"></script>-->
 <script>main();</script>
 
 </body>
