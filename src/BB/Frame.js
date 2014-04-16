@@ -32,23 +32,35 @@ BB.Frame = function(win, scroll, mouse, clicked) {
     this.clicked = clicked || false;
 };
 
+/**
+ *
+ * @returns {BB.win}
+ */
 BB.Frame.getCurrentWin = function() {
     return {
-        width: 0,
-        height: 0
+        width: document.body.clientWidth,
+        height: document.body.clientHeight
     };
 };
 
+/**
+ *
+ * @returns {BB.scroll}
+ */
 BB.Frame.getCurrentScroll = function() {
     return {
-        offsetX: 0,
-        offsetY: 0
+        offsetX: document.body.scrollLeft,
+        offsetY: document.body.scrollTop
     };
 };
 
+/**
+ *
+ * @returns {BB.mouse}
+ */
 BB.Frame.getCurrentMouse = function() {
     return {
-        x: 0,
-        y: 0
+        x: BB.Session.mouse.x || 0,
+        y: BB.Session.mouse.y || 0
     };
 };

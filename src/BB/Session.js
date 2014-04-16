@@ -39,6 +39,15 @@ BB.Session = function(backendUrl, fps, title, url) {
 
     /** @type {boolean} */
     this.clicked = false;
+
+    this.init();
+};
+
+BB.Session.prototype.init = function(){
+    document.addEventListener('mousemove', function(e) {
+        BB.Session.mouse.x = e.clientX || e.pageX;
+        BB.Session.mouse.y = e.clientY || e.pageY;
+    }, false);
 };
 
 /**
@@ -119,4 +128,13 @@ BB.Session.prototype.toString = function(){
     return JSON.stringify(
         new BB.Recording(this.title, this.url, this.fps, this.frames)
     );
+};
+
+/**
+ *
+ * @type {BB.mouse}
+ */
+BB.Session.mouse = {
+    x: 0,
+    y: 0
 };
