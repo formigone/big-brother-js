@@ -4,18 +4,22 @@ goog.require('BB.Frame');
 
 /**
  *
+ * @param {string} backendUrl
  * @param {number=} fps
  * @param {string=} title
  * @param {string=} url
  *
  * @constructor
  */
-BB.Session = function(fps, title, url) {
+BB.Session = function(backendUrl, fps, title, url) {
+    /** @type {string} */
+    this.backendUrl = backendUrl;
+
     /** @type {number} */
     this.fps = fps || 3;
 
     /** @type {number} */
-    this.TICK = this.fps * 1000;
+    this.TICK_MILLI = 1000 / this.fps;
 
     /** @type {string} */
     this.title = title || BB.Session.getPageTitle();
@@ -28,26 +32,50 @@ BB.Session = function(fps, title, url) {
 
     /** @type {boolean} */
     this.active = false;
+
+    /** @type {number} Pointer to setTimeout */
+    this.timer;
 };
 
+/**
+ * Start recording a session
+ */
 BB.Session.prototype.start = function(){
     if (!this.active) {
+console.log('session started');
         this.active = true;
         this.tick();
     }
 };
 
+/**
+ * Stop recording a session
+ */
 BB.Session.prototype.stop = function(){
+console.log('session stopped');
+    clearTimeout(this.timer);
     this.active = false;
 };
 
+/**
+ * Captures the current frame
+ *
+ * @private
+ */
 BB.Session.prototype.tick = function(){
+console.log('tick');
+    // TODO: Add new frame to this.frames
+
+    if (this.active) {
+        this.timer = setTimeout(this.tick.bind(this), this.TICK_MILLI);
+    }
 };
 
-BB.Session.prototype.save = function(){
-};
-
+/**
+ * Send recording to backend server
+ */
 BB.Session.prototype.upload = function(){
+console.log("saving session to " + this.backendUrl);
 };
 
 /**
