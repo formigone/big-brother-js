@@ -16,7 +16,7 @@ Todo
 
 [x] Implement BB.Session.upload
 [x] List saved recordings so app can pull it down for playback
-[ ] Implement clicked handling on BB.Session - mark BB.Session.clicked = true on click, and apply + reset when next frame is generated
+[x] Implement clicked handling on BB.Session - mark BB.Session.clicked = true on click, and apply + reset when next frame is generated
 
 [ ] Create playback mechanism
 

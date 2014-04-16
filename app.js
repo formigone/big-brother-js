@@ -51,7 +51,7 @@ var main = function(){
 
                             html += 'win: &lt;' + frame.win.width + ', ' + frame.win.height + '>, ';
                             html += 'scroll: &lt;' + frame.scroll.offsetX + ', ' + frame.scroll.offsetY + '>, ';
-                            html += 'mouse: &lt;' + frame.mouse.x + ', ' + frame.mouse.y + '><br/>';
+                            html += 'mouse: ' + (frame.clicked ? '*' : '') + '&lt;' + frame.mouse.x + ', ' + frame.mouse.y + '><br/>';
                         }
 
                         desc.frames.innerHTML = html;

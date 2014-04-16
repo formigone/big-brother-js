@@ -44,9 +44,15 @@ BB.Session = function(backendUrl, fps, title, url) {
 };
 
 BB.Session.prototype.init = function(){
+    var self = this;
+
     document.addEventListener('mousemove', function(e) {
         BB.Session.mouse.x = e.clientX || e.pageX;
         BB.Session.mouse.y = e.clientY || e.pageY;
+    }, false);
+
+    document.addEventListener('click', function(e) {
+        self.clicked = true;
     }, false);
 };
 
@@ -78,11 +84,13 @@ BB.Session.prototype.tick = function(){
         var frame = new BB.Frame(
             BB.Frame.getCurrentWin(),
             BB.Frame.getCurrentScroll(),
-            BB.Frame.getCurrentMouse()
+            BB.Frame.getCurrentMouse(),
+            this.clicked
         );
 
         this.frames.push(frame);
         this.timer = setTimeout(this.tick.bind(this), this.TICK_MILLI);
+        this.clicked = false;
     }
 };
 
