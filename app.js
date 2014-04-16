@@ -1,6 +1,6 @@
 goog.require('BB.Session');
 
-var main = function(){
+var main = function() {
     var sess = new BB.Session('/save.php', 3, 'Test Page');
     var sel = document.createElement('select');
     var btns = {
@@ -12,6 +12,7 @@ var main = function(){
     var desc = {
         title: document.createElement('h1'),
         url: document.createElement('p'),
+        win: document.createElement('p'),
         fps: document.createElement('p'),
         frames: document.createElement('p')
     };
@@ -42,6 +43,7 @@ var main = function(){
 
                         desc.title.textContent = data.title;
                         desc.url.textContent = data.url;
+                        desc.win.textContent = 'Resolution: <' + data.res.width + ', ' + data.res.height + '>';
                         desc.fps.textContent = 'FPS: ' + data.fps;
 
                         var html = 'Frames: ' + data.frames.length + '<br/>';
@@ -49,7 +51,7 @@ var main = function(){
                         for (var i = 0, len = data.frames.length; i < len; i++) {
                             var frame = data.frames[i];
 
-                            html += 'win: &lt;' + frame.win.width + ', ' + frame.win.height + '>, ';
+                            html += 'viewport: &lt;' + frame.win.width + ', ' + frame.win.height + '>, ';
                             html += 'scroll: &lt;' + frame.scroll.offsetX + ', ' + frame.scroll.offsetY + '>, ';
                             html += 'mouse: ' + (frame.clicked ? '*' : '') + '&lt;' + frame.mouse.x + ', ' + frame.mouse.y + '><br/>';
                         }
@@ -100,6 +102,7 @@ var main = function(){
 
     document.body.appendChild(desc.title);
     document.body.appendChild(desc.url);
+    document.body.appendChild(desc.win);
     document.body.appendChild(desc.fps);
     document.body.appendChild(desc.frames);
 };

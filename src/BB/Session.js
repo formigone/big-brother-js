@@ -134,7 +134,7 @@ BB.Session.getPageUrl = function(){
  */
 BB.Session.prototype.toString = function(){
     return JSON.stringify(
-        new BB.Recording(this.title, this.url, this.fps, this.frames)
+        new BB.Recording(this.title, this.url, BB.Frame.getClientRes(), this.fps, this.frames)
     );
 };
 

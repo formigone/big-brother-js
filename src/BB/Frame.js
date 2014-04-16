@@ -36,6 +36,17 @@ BB.Frame = function(win, scroll, mouse, clicked) {
  *
  * @returns {BB.win}
  */
+BB.Frame.getClientRes = function() {
+    return {
+        width: window.innerWidth,
+        height: window.innerHeight
+    };
+};
+
+/**
+ *
+ * @returns {BB.win}
+ */
 BB.Frame.getCurrentWin = function() {
     return {
         width: document.body.clientWidth,
