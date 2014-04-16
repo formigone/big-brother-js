@@ -14,10 +14,11 @@ BB.scroll;
  * @param {BB.win} win
  * @param {BB.scroll} scroll
  * @param {BB.mouse} mouse
+ * @param {boolean=} clicked
  *
  * @constructor
  */
-BB.Frame = function(win, scroll, mouse) {
+BB.Frame = function(win, scroll, mouse, clicked) {
     /** @type {BB.win} */
     this.win = win;
 
@@ -26,4 +27,28 @@ BB.Frame = function(win, scroll, mouse) {
 
     /** @type {BB.mouse} */
     this.mouse = mouse;
+
+    /** @type {boolean} */
+    this.clicked = clicked || false;
+};
+
+BB.Frame.getCurrentWin = function() {
+    return {
+        width: 0,
+        height: 0
+    };
+};
+
+BB.Frame.getCurrentScroll = function() {
+    return {
+        offsetX: 0,
+        offsetY: 0
+    };
+};
+
+BB.Frame.getCurrentMouse = function() {
+    return {
+        x: 0,
+        y: 0
+    };
 };

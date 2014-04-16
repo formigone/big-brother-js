@@ -7,10 +7,17 @@ Todo
 ----
 
 [ ] Make script for full and minify version
-  [ ] Concat all src files
-  [ ] Pull all goog.provides to top
-  [ ] Full version: whitespace only + pretty print
-  [ ] Min version: Simple optimizations
+  [x] Concat all src files
+  [x] Pull all goog.provides to top
+  [x] Full version: whitespace only + pretty print
+  [x] Min version: Simple optimizations
+  [ ] Remove goog junk from top of document
+  [ ] Add copyright stuff to top of document
+
+[ ] Implement BB.Session.upload
+[ ] Implement clicked handling on BB.Session - mark BB.Session.clicked = true on click, and apply + reset when next frame is generated
+
+[ ] Create playback mechanism
 
 Copyright (c) 2014 Rodrigo Silveira. All rights reserved.
 

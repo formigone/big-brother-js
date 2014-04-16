@@ -1,6 +1,7 @@
 goog.provide('BB.Session');
 
 goog.require('BB.Frame');
+goog.require('BB.Recording');
 
 /**
  *
@@ -35,6 +36,9 @@ BB.Session = function(backendUrl, fps, title, url) {
 
     /** @type {number} Pointer to setTimeout */
     this.timer;
+
+    /** @type {boolean} */
+    this.clicked = false;
 };
 
 /**
@@ -42,7 +46,6 @@ BB.Session = function(backendUrl, fps, title, url) {
  */
 BB.Session.prototype.start = function(){
     if (!this.active) {
-console.log('session started');
         this.active = true;
         this.tick();
     }
@@ -52,7 +55,6 @@ console.log('session started');
  * Stop recording a session
  */
 BB.Session.prototype.stop = function(){
-console.log('session stopped');
     clearTimeout(this.timer);
     this.active = false;
 };
@@ -63,10 +65,14 @@ console.log('session stopped');
  * @private
  */
 BB.Session.prototype.tick = function(){
-console.log('tick');
-    // TODO: Add new frame to this.frames
-
     if (this.active) {
+        var frame = new BB.Frame(
+            BB.Frame.getCurrentWin(),
+            BB.Frame.getCurrentScroll(),
+            BB.Frame.getCurrentMouse()
+        );
+
+        this.frames.push(frame);
         this.timer = setTimeout(this.tick.bind(this), this.TICK_MILLI);
     }
 };
@@ -75,7 +81,7 @@ console.log('tick');
  * Send recording to backend server
  */
 BB.Session.prototype.upload = function(){
-console.log("saving session to " + this.backendUrl);
+    console.log(this.toString());
 };
 
 /**
@@ -99,4 +105,14 @@ BB.Session.getPageTitle = function() {
  */
 BB.Session.getPageUrl = function(){
     return window.location.href;
+};
+
+/**
+ *
+ * @returns {string}
+ */
+BB.Session.prototype.toString = function(){
+    return JSON.stringify(
+        new BB.Recording(this.title, this.url, this.fps, this.frames)
+    );
 };
