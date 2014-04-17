@@ -22,6 +22,24 @@ BB.RecPlayer = function(recording) {
     /** @type {Element} */
     this.mouse = document.createElement('img');
 
+    /** @type {Object.<string: number>} */
+    this.ticks = {
+        FRAME_DUR_MILLI: 0,
+        FRAME_DUR_SEC: 0
+    };
+
+    /** @type {Object.<string: number>} */
+    this.frames = {
+        TOTAL: 0,
+        CURRENT: 0
+    };
+
+    /**
+     * @type {boolean}
+     * @private
+     */
+    this.active = false;
+
     /**
      * @type {Element}
      * @private
@@ -69,6 +87,8 @@ BB.RecPlayer.prototype.init = function(){
  */
 BB.RecPlayer.prototype.setRecording = function(recording) {
     this.recording = recording;
+
+    this.active = false;
 };
 
 /**
@@ -77,8 +97,29 @@ BB.RecPlayer.prototype.setRecording = function(recording) {
  * @param {number} y
  */
 BB.RecPlayer.prototype.centerMouse = function(x, y) {
-    this.mouse.style.left = (this.recording.frames[0].mouse.x + this.mouse._centerX) + 'px';
-    this.mouse.style.top = (this.recording.frames[0].mouse.x + this.mouse._centerY) + 'px';
+    this.mouse.style.left = (x + this.mouse._centerX) + 'px';
+    this.mouse.style.top = (y + this.mouse._centerY) + 'px';
+};
+
+/**
+ *
+ */
+BB.RecPlayer.prototype.tick = function() {
+    var frame = this.recording.frames[this.frames.CURRENT];
+
+    this.centerMouse(frame.mouse.x, frame.mouse.y);
+
+    if (frame.clicked) {
+        this.mouse.src = this._mouseOn.src;
+    } else {
+        this.mouse.src = this._mouseOff.src;
+    }
+
+    this.frames.CURRENT++;
+
+    if (this.frames.CURRENT < this.frames.TOTAL) {
+        setTimeout(this.tick.bind(this), this.ticks.FRAME_DUR_MILLI);
+}
 };
 
 
@@ -87,7 +128,7 @@ BB.RecPlayer.prototype.centerMouse = function(x, y) {
  * @param {Node} panel
  */
 BB.RecPlayer.prototype.go = function(panel) {
-    if (this.recording !== {}) {
+    if (!this.active && this.recording !== {}) {
         var clone;
 
         while (panel.firstChild) {
@@ -95,18 +136,29 @@ BB.RecPlayer.prototype.go = function(panel) {
             panel.replaceChild(clone);
         }
 
+        this.ticks.FRAME_DUR_MILLI = 1000 / this.recording.fps;
+        this.ticks.FRAME_DUR_SEC = this.recording.fps / 1000;
+
+        this.frames.TOTAL = this.recording.frames.length;
+        this.frames.CURRENT = 0;
+
         this.win.style.width = this.recording.res.width + 'px';
         this.win.style.height = this.recording.res.height + 'px';
 
         this.viewport.style.width = this.recording.frames[0].win.width + 'px';
         this.viewport.style.height = this.recording.frames[0].win.height + 'px';
 
-        this.doc.style.width = this.recording.res.width + 'px';
-        this.doc.style.height = this.recording.res.height + 'px';
+        this.doc.style.width = this.recording.frames[0].win.width + 'px';
+        this.doc.style.height = this.recording.frames[0].win.height + 'px';
         this.doc.src = this.recording.url;
+
+        this.mouse.style.transitionDuration = this.ticks.FRAME_DUR_SEC + 's';
 
         this.centerMouse(this.recording.frames[0].mouse.x, this.recording.frames[0].mouse.y);
 
         panel.appendChild(this.win);
+
+        this.active = true;
+        this.tick();
     }
 };
