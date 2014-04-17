@@ -2,6 +2,7 @@
 <html lang="eng">
 <head>
    <title>BigBrother.JS</title>
+    <link rel="stylesheet" href="/css/bb.css">
 </head>
 <body>
 

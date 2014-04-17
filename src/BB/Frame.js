@@ -49,8 +49,8 @@ BB.Frame.getClientRes = function() {
  */
 BB.Frame.getCurrentWin = function() {
     return {
-        width: document.body.clientWidth,
-        height: document.body.clientHeight
+        width: document.documentElement.clientWidth,
+        height: document.documentElement.clientHeight
     };
 };
 

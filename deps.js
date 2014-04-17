@@ -2,5 +2,6 @@
 // Please do not edit.
 goog.addDependency('../../../bb.js', ['BB.Frame', 'BB.Session', 'BB.go'], []);
 goog.addDependency('../../../src/BB/Frame.js', ['BB.Frame'], []);
+goog.addDependency('../../../src/BB/RecPlayer.js', ['BB.RecPlayer'], []);
 goog.addDependency('../../../src/BB/Recording.js', ['BB.Recording'], []);
 goog.addDependency('../../../src/BB/Session.js', ['BB.Session'], ['BB.Frame', 'BB.Recording']);

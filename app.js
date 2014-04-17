@@ -1,12 +1,16 @@
 goog.require('BB.Session');
+goog.require('BB.RecPlayer');
 
 var main = function() {
     var sess = new BB.Session('/save.php', 3, 'Test Page');
+    var player = new BB.RecPlayer();
     var sel = document.createElement('select');
+    var container = document.createElement('div');
     var btns = {
         start: document.createElement('button'),
         stop: document.createElement('button'),
-        upload: document.createElement('button')
+        upload: document.createElement('button'),
+        play: document.createElement('button')
     };
 
     var desc = {
@@ -57,12 +61,15 @@ var main = function() {
                         }
 
                         desc.frames.innerHTML = html;
+                        player.setRecording(/** @type {BB.Recording} */(data));
                     }
                 };
 
                 xhr.send();
             }
         };
+
+        container.className = 'player';
 
         opt.setAttribute('filename', '');
         opt.textContent = 'Loading...';
@@ -90,14 +97,18 @@ var main = function() {
         xhr.send();
     };
 
+    confSel(sel);
     confBtn(btns.start, 'Start', sess.start);
     confBtn(btns.stop, 'Stop', sess.stop);
     confBtn(btns.upload, 'Upload', sess.upload);
-    confSel(sel);
+    confBtn(btns.play, 'Play', function(){
+        player.go(container);
+    });
 
     document.body.appendChild(btns.start);
     document.body.appendChild(btns.stop);
     document.body.appendChild(btns.upload);
+    document.body.appendChild(btns.play);
     document.body.appendChild(sel);
 
     document.body.appendChild(desc.title);
@@ -105,4 +116,6 @@ var main = function() {
     document.body.appendChild(desc.win);
     document.body.appendChild(desc.fps);
     document.body.appendChild(desc.frames);
+
+    document.body.appendChild(container);
 };
