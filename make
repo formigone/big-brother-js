@@ -7,8 +7,8 @@ mkdir tmp
 echo "goog.provide('BB.go');" > tmp/lib.js
 
 cat src/BB/*.js | grep goog.provide >> tmp/lib.js
-echo "'__BREAK_AWAY__';" >> tmp/lib.js
 cat src/BB/*.js | grep -v 'goog.provide\|goog.require' >> tmp/lib.js
+#cat exports >> tmp/lib.js
 
 echo "----------------------------------------------------------"
 echo "Compiling JavaScript project using Google Closure compiler"
@@ -33,7 +33,7 @@ echo ""
  --root=/usr/local/google-closure/closure-library/ \
  --root=./tmp \
  --namespace=BB.go \
- --output_mode=compiled \
+ --output_mode="compiled" \
  --compiler_jar=/usr/local/google-closure/compiler.jar \
  --compiler_flags="--compilation_level=WHITESPACE_ONLY" \
  --compiler_flags="--create_source_map=bb.js.map" \

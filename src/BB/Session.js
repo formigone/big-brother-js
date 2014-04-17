@@ -43,6 +43,9 @@ BB.Session = function(backendUrl, fps, title, url) {
     this.init();
 };
 
+/**
+ * @private
+ */
 BB.Session.prototype.init = function(){
     var self = this;
 

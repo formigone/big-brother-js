@@ -1,0 +1,17 @@
+window['BB'] = BB;
+
+window['BB']['Session'] = BB.Session;
+window['BB']['Session']['prototype']['fps'] = BB.Session.prototype.fps;
+window['BB']['Session']['prototype']['start'] = BB.Session.prototype.start;
+window['BB']['Session']['prototype']['stop'] = BB.Session.prototype.stop;
+window['BB']['Session']['prototype']['upload'] = BB.Session.prototype.upload;
+window['BB']['Session']['prototype']['toString'] = BB.Session.prototype.toString;
+window['BB']['Session']['getPageTitle'] = BB.Session.getPageTitle;
+window['BB']['Session']['getPageUrl'] = BB.Session.getPageUrl;
+
+window['BB']['Recording'] = BB.Recording;
+window['BB']['Recording']['prototype']['title'] = BB.Recording.prototype.title;
+window['BB']['Recording']['prototype']['url'] = BB.Recording.prototype.url;
+window['BB']['Recording']['prototype']['res'] = BB.Recording.prototype.res;
+window['BB']['Recording']['prototype']['fps'] = BB.Recording.prototype.fps;
+window['BB']['Recording']['prototype']['frames'] = BB.Recording.prototype.frames;

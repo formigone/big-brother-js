@@ -7,7 +7,7 @@ goog.provide('BB.RecPlayer');
  * @constructor
  */
 BB.RecPlayer = function(recording) {
-    /** @type {BB.Recording} */
+    /** @type {BB.Recording|Object} */
     this.recording = recording || {};
 
     /** @type {Node} */
@@ -70,8 +70,8 @@ BB.RecPlayer.prototype.init = function(){
 
     this.mouse._width = 32;
     this.mouse._height = 32;
-    this.mouse._centerX = parseInt(this.mouse._width * 0.5);
-    this.mouse._centerY = parseInt(this.mouse._height * 0.5);
+    this.mouse._centerX = parseInt(this.mouse._width * 0.5, 10);
+    this.mouse._centerY = parseInt(this.mouse._height * 0.5, 10);
     this.mouse.style.left = '-100px';
     this.mouse.style.top = '-100px';
     this.mouse.src = this._mouseOff.src;
@@ -132,8 +132,8 @@ BB.RecPlayer.prototype.go = function(panel) {
         var clone;
 
         while (panel.firstChild) {
-            clone = panel.firstChild.cloneNode(true);
-            panel.replaceChild(clone);
+            clone = panel.firstChild.cloneNode(false);
+            panel.replaceChild(clone, panel.firstChild);
         }
 
         this.ticks.FRAME_DUR_MILLI = 1000 / this.recording.fps;
