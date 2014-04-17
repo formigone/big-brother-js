@@ -97,8 +97,8 @@ BB.RecPlayer.prototype.setRecording = function(recording) {
  * @param {number} y
  */
 BB.RecPlayer.prototype.centerMouse = function(x, y) {
-    this.mouse.style.left = (x + this.mouse._centerX) + 'px';
-    this.mouse.style.top = (y + this.mouse._centerY) + 'px';
+    this.mouse.style.left = (x - this.mouse._centerX) + 'px';
+    this.mouse.style.top = (y - this.mouse._centerY) + 'px';
 };
 
 /**

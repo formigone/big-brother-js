@@ -2,7 +2,7 @@ goog.require('BB.Session');
 goog.require('BB.RecPlayer');
 
 var main = function() {
-    var sess = new BB.Session('/save.php', 3, 'Test Page');
+    var sess = new BB.Session('/save.php', 10, 'Test Page');
     var player = new BB.RecPlayer();
     var sel = document.createElement('select');
     var container = document.createElement('div');
@@ -111,11 +111,11 @@ var main = function() {
     document.body.appendChild(btns.play);
     document.body.appendChild(sel);
 
+    document.body.appendChild(container);
+
     document.body.appendChild(desc.title);
     document.body.appendChild(desc.url);
     document.body.appendChild(desc.win);
     document.body.appendChild(desc.fps);
     document.body.appendChild(desc.frames);
-
-    document.body.appendChild(container);
 };
