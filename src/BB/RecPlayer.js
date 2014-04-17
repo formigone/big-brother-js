@@ -22,13 +22,13 @@ BB.RecPlayer = function(recording) {
     /** @type {Element} */
     this.mouse = document.createElement('img');
 
-    /** @type {Object.<string: number>} */
+    /** @type {Object.<string, number>} */
     this.ticks = {
         FRAME_DUR_MILLI: 0,
         FRAME_DUR_SEC: 0
     };
 
-    /** @type {Object.<string: number>} */
+    /** @type {Object.<string, number>} */
     this.frames = {
         TOTAL: 0,
         CURRENT: 0
