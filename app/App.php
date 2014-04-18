@@ -1,7 +1,7 @@
 <?php
-namespace Fmg;
+namespace Th;
 
-class Site {
+class App {
    /** @var array */
    public $title;
 
