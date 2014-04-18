@@ -1,7 +1,7 @@
 goog.require('BB.Session');
 goog.require('BB.RecPlayer');
 
-var main = function() {
+var main = function(rootPanel, playerPanel) {
     var sess = new BB.Session('/save.php', 10, 'Test Page');
     var player = new BB.RecPlayer();
     var sel = document.createElement('select');
@@ -105,17 +105,17 @@ var main = function() {
         player.go(container);
     });
 
-    document.body.appendChild(btns.start);
-    document.body.appendChild(btns.stop);
-    document.body.appendChild(btns.upload);
-    document.body.appendChild(btns.play);
-    document.body.appendChild(sel);
+    rootPanel.appendChild(btns.start);
+    rootPanel.appendChild(btns.stop);
+    rootPanel.appendChild(btns.upload);
+    rootPanel.appendChild(btns.play);
+    rootPanel.appendChild(sel);
 
-    document.body.appendChild(container);
+    playerPanel.appendChild(container);
 
-    document.body.appendChild(desc.title);
-    document.body.appendChild(desc.url);
-    document.body.appendChild(desc.win);
-    document.body.appendChild(desc.fps);
-    document.body.appendChild(desc.frames);
+    rootPanel.appendChild(desc.title);
+    rootPanel.appendChild(desc.url);
+    rootPanel.appendChild(desc.win);
+    rootPanel.appendChild(desc.fps);
+    rootPanel.appendChild(desc.frames);
 };
