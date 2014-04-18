@@ -1,0 +1,20 @@
+{
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "formigone/th",
+                "version": "dev-master",
+                "source": {
+                    "url": "https://github.com/formigone/th.git",
+                    "type": "git",
+                    "reference": "origin/master"
+                }
+            }
+        }
+    ],
+    "require": {
+        "formigone/th": "dev-master"
+    }
+}
+
