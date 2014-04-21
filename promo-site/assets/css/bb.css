@@ -1,0 +1,23 @@
+.bb-win {
+    position: relative;
+    overflow: auto;
+    border: 1px solid #aaa;
+    box-shadow: 0 10px 10px #333;
+    margin: 10px 10px 25px;
+}
+
+.bb-mouse {
+    position: absolute;
+    z-index: 9999999;
+    -webkit-transition: all 0.1s;
+    transition: all 0.1s;
+}
+
+.bb-vp {
+    overflow: hidden;
+}
+
+.bb-doc {
+    border: 0;
+    outline: none;
+}
