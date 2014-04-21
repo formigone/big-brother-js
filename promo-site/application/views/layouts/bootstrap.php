@@ -13,6 +13,9 @@
          padding: 0 !important;
       }
    </style>
+
+   <script src="/assets/js/jquery.js"></script>
+   <script src="/assets/js/bootstrap.min.js"></script>
 </head>
 <body>
 
@@ -66,8 +69,6 @@
    </div>
 </footer
 
-<script src="/assets/js/jquery.js"></script>
-<script src="/assets/js/bootstrap.min.js"></script>
 <script>
    $(".nav-link").click(function(e) {
       e.preventDefault();

@@ -3,6 +3,7 @@
       <img src="/assets/img/big-brother-js-logo.png"/>
 
       <h1>Big Brother JS</h1>
+      <p>Visual user session tracking</p>
    </div>
 </div>
 
@@ -23,7 +24,7 @@
 
             <div class="carousel-inner">
                <div class="item active">
-                  <img src="img/stock1.jpg">
+                  <img src="/assets/img/stock1.jpg">
 
                   <div class="carousel-caption">
                      Amazing photos provided by <a href="http://unsplash.com">unsplash.com</a>

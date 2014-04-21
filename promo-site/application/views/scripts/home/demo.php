@@ -1,11 +1,3 @@
-<div id="top" class="jumbotron">
-   <div class="container">
-      <img src="/assets/img/big-brother-js-logo.png"/>
-
-      <h1>Big Brother JS</h1>
-   </div>
-</div>
-
 <div class="container">
 
    <h3 id="tour" class="subhead">Visual user session tracking</h3>
@@ -23,7 +15,7 @@
 
             <div class="carousel-inner">
                <div class="item active">
-                  <img src="img/stock1.jpg">
+                  <img src="/assetsimg/stock1.jpg">
 
                   <div class="carousel-caption">
                      Amazing photos provided by <a href="http://unsplash.com">unsplash.com</a>
