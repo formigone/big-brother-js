@@ -3,7 +3,6 @@
 }
 
 $route['live-demo'] = '/home/demo';
-$route['docs'] = '/home/docs';
 $route['community'] = '/home/community';
 $route['get-started'] = '/home/getStarted';
 

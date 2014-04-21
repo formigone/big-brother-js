@@ -42,6 +42,9 @@ class Home extends CI_Controller {
     *
     */
    public function docs() {
+      $this->load->library('uri');
+      $api = $this->uri->segment(1, 'test');
+      var_dump($api);exit;
       $data = array(
          'page' => array(
             'title' => 'Documentation | #BigBrotherJS',

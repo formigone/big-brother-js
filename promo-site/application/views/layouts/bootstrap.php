@@ -67,7 +67,7 @@
       <p class="pull-right">&nbsp; <span class="glyphicon glyphicon-share"></span>G+ </p>
       <p class="pull-right">&nbsp; <span class="glyphicon glyphicon-share"></span>T </p>
    </div>
-</footer
+</footer>
 
 <script>
    $(".nav-link").click(function(e) {
