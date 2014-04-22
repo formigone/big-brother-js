@@ -7,6 +7,8 @@
    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
    <link href="/assets/css/strapped.css" rel="stylesheet">
    <link rel="stylesheet" href="/assets/css/bb.css">
+   <link href="/assets/css/docs-style.css" rel="stylesheet">
+
    <style>
       .nav a.navbar-btn {
          margin: 0.7em 0 0 1em !important;
@@ -14,8 +16,7 @@
       }
    </style>
 
-   <script src="/assets/js/jquery.js"></script>
-   <script src="/assets/js/bootstrap.min.js"></script>
+   <script src="/assets/js/bundle.js"></script>
 </head>
 <body>
 
@@ -63,11 +64,8 @@
       </p>
 
       <p class="pull-right">&nbsp; &nbsp;<span>&lt;/</span>BigBrotherJS<span>&gt;</span></p>
-
       <p class="pull-right">&nbsp; <span class="glyphicon glyphicon-share"></span>GIT </p>
-
       <p class="pull-right">&nbsp; <span class="glyphicon glyphicon-share"></span>G+ </p>
-
       <p class="pull-right">&nbsp; <span class="glyphicon glyphicon-share"></span>T </p>
    </div>
 </footer>

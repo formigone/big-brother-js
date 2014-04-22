@@ -13,25 +13,29 @@
  *    3.7. Put file contents in /promo-site/application/views/scripts/docs/{filename}
  */
 
-//$filename = 'BB.Frame.html';
-//$dir = 'symbols/';
 
-//$filename = 'index.html';
-//$dir = '';
+$ROOT_PATH = realpath(__DIR__) . '/';
 
-//$filename = 'src_BB_Session.js.html';
-//$dir = 'symbols/src/';
-
-
+/**
+ * @param $filename
+ *
+ * @return string
+ */
 function getNewFilename($filename) {
    $filename = preg_replace('/\.htm.?$/', '', $filename);
    $filename = str_replace('.', '_', $filename);
 
-   return $filename.'.php';
+   return $filename . '.php';
 }
 
+/**
+ * @param $in
+ *
+ * @return string
+ * @throws Exception
+ */
 function transform($in) {
-   $const = '<div><p><hr/><br/></p></div>';
+   $const = '<div><p><br/></p></div>';
    $out = '';
    $patterns = array(
       array('pattern' => '/<body[^>]*>(.*?)<\/body/s', 'errMsg' => 'Could not parse out file')
@@ -54,26 +58,56 @@ function transform($in) {
    $out = preg_replace('/span(\d+)/', 'col-md-$1', $out);
    $out = preg_replace('/href="..\/..\//', 'href="', $out);
    $out = preg_replace('/href="..\//', 'href="', $out);
+   $out = preg_replace('/src="..\//', 'src="/assets/', $out);
 
-   $out = preg_replace_callback('/href="symbols\/(.*?).html"/', function($matches) {
+   $out = preg_replace_callback('/<ul class="nav nav\-list">(.*?)<\/ul>/s', function ($matches) {
+         $str = $matches[0];
+         $str = str_replace('<li>', '<li class="panel-body">', $str);
+         $str = str_replace('<li', '<div', $str);
+         $str = str_replace('</li>', '</div>', $str);
+         $str = str_replace('<ul', '<div', $str);
+         $str = str_replace('</ul>', '</div>', $str);
+
+         return $str;
+      }, $out
+   );
+   $out = preg_replace('/"nav nav\-list"/', '"panel panel-default"', $out);
+   $out = preg_replace('/"nav\-header"/', '"panel-heading"', $out);
+   $out = preg_replace('/class="well" id="class-list"/', '', $out);
+
+   $out = preg_replace_callback('/href="symbols\/(.*?).html"/', function ($matches) {
 //         var_dump($matches);
          $str = $matches[1];
          $str = str_replace('.html', '', $str);
-         $str = 'href="/docs/api/'.str_replace('.', '_', $str).'"';
+         $str = 'href="/docs/api/' . str_replace('.', '_', $str) . '"';
 
          return $str;
-      }, $out);
+      }, $out
+   );
+
+   $out = preg_replace_callback('/id="source\-code"(.*?)<\/pre>/s', function ($matches) {
+         $str = $matches[1];
+         $str = str_replace('<', '&lt;', $str);
+
+         return $str;
+      }, $out
+   );
 
    $out = preg_replace('/src\/src/', 'src', $out);
-   $out = preg_replace('/\n/', "", $out);
+//   $out = preg_replace('/\n/', "", $out);
 
-   $out = $const. $out .'</div></div>';
+   $out = $const . $out . '</div></div>';
 
    return $out;
 }
 
+/**
+ * @param $filename
+ * @param $data
+ * @param $path
+ */
 function save($filename, $data, $path) {
-   $fh = fopen($path.$filename, 'w');
+   $fh = fopen($path . $filename, 'w');
    if ($fh) {
       fwrite($fh, $data);
       fclose($fh);
@@ -82,12 +116,15 @@ function save($filename, $data, $path) {
 //   return file_put_contents($path.$filename, $data);
 }
 
-
+/**
+ * @param array $files
+ * @param $dir
+ */
 function extractDir(array $files, $dir) {
    foreach ($files as $f) {
       if (preg_match('/\.html$/', $f)) {
          echo "processing {$dir}{$f}\n";
-         $in = file_get_contents('out/'.$dir.$f);
+         $in = file_get_contents('out/' . $dir . $f);
 
 
          $out = array(
@@ -102,7 +139,7 @@ function extractDir(array $files, $dir) {
             $out['name'] = str_replace('src_', '', $out['name']);
          }
 
-         save($out['name'], $out['data'], 'promo-site/application/views/scripts/docs/'.$src);
+         save($out['name'], $out['data'], 'promo-site/application/views/scripts/docs/' . $src);
       }
 
 //   echo $out['data'], "\n\n- - - - - - - \n\n";
@@ -112,6 +149,32 @@ function extractDir(array $files, $dir) {
    }
 }
 
+/**
+ * @param array $in
+ * @param $out
+ * @param $path
+ *
+ * @return int
+ */
+function compactFiles(array $in, $out, $path) {
+   $data = '.panel-default {border-color: #ddd; padding: 0; list-style: none; border: 0; } .panel-body {padding: 5px 0}';
+   $data .= 'pre .linenums{margin-left:0 !important}';
+
+   foreach ($in as $_in) {
+      $data .= file_get_contents($_in);
+   }
+
+   return file_put_contents($path . $out, $data);
+}
+
 extractDir(scandir('./out'), '');
 extractDir(scandir('./out/symbols'), 'symbols/');
 extractDir(scandir('./out/symbols/src'), 'symbols/src/');
+
+compactFiles(array(
+      $ROOT_PATH . 'out/css/common.css',
+      $ROOT_PATH . 'out/css/prettify.css',
+   ),
+   'docs-style.css',
+   $ROOT_PATH . 'promo-site/assets/css/'
+);
