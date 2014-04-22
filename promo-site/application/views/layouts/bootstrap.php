@@ -3,11 +3,22 @@
 <head>
    <meta charset="utf-8">
    <title><?= $page['title']; ?></title>
+
+   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+   <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
    <meta name="viewport" content="width=device-width,initial-scale=1.0">
    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
    <link href="/assets/css/strapped.css" rel="stylesheet">
    <link rel="stylesheet" href="/assets/css/bb.css">
    <link href="/assets/css/docs-style.css" rel="stylesheet">
+
+   <link rel="apple-touch-icon-precomposed" sizes="57x57"
+         href="/assets/img/big-brother-js-icon-57.png"/>
+   <link rel="apple-touch-icon-precomposed" sizes="72x72"
+         href="/assets/img/big-brother-js-icon-72.png"/>
+   <link rel="apple-touch-icon-precomposed" sizes="114x114"
+         href="/assets/img/big-brother-js-icon-114.png"/>
 
    <style>
       .nav a.navbar-btn {
