@@ -40,7 +40,7 @@
                <a href="/live-demo" class="nav-link">Live demo</a>
             </li>
             <li class="<?= $page['active'] === 'docs' ? 'active' : ''; ?>">
-               <a href="/docs" class="nav-link">Docs</a>
+               <a href="/docs" class="nav-link">API Docs</a>
             </li>
             <li class="<?= $page['active'] === 'community' ? 'active' : ''; ?>">
                <a href="/community">Community</a>
@@ -64,9 +64,24 @@
       </p>
 
       <p class="pull-right">&nbsp; &nbsp;<span>&lt;/</span>BigBrotherJS<span>&gt;</span></p>
-      <p class="pull-right">&nbsp; <span class="glyphicon glyphicon-share"></span>GIT </p>
-      <p class="pull-right">&nbsp; <span class="glyphicon glyphicon-share"></span>G+ </p>
-      <p class="pull-right">&nbsp; <span class="glyphicon glyphicon-share"></span>T </p>
+
+      <p class="pull-right">&nbsp;
+         <a href="https://github.com/formigone/big-brother-js">
+            <span class="glyphicon glyphicon-share"></span>GitHub
+         </a>
+      </p>
+
+      <p class="pull-right">&nbsp;
+         <a href="https://plus.google.com/u/0/b/102289667188884214558/102289667188884214558/about">
+            <span class="glyphicon glyphicon-share"></span>Google+
+         </a>
+      </p>
+
+      <p class="pull-right">&nbsp;
+         <a href="https://twitter.com/bigbrotherjs">
+            <span class="glyphicon glyphicon-share"></span>Twitter
+         </a>
+      </p>
    </div>
 </footer>
 

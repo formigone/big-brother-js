@@ -15,7 +15,7 @@
 
             <div class="carousel-inner">
                <div class="item active">
-                  <img src="/assetsimg/stock1.jpg">
+                  <img src="/assets/img/stock1.jpg">
 
                   <div class="carousel-caption">
                      Amazing photos provided by <a href="http://unsplash.com">unsplash.com</a>
