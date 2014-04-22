@@ -12,15 +12,8 @@ class Docs extends CI_Controller {
     *
     */
    public function index() {
-      $data = array(
-         'page' => array(
-            'title' => '#BigBrotherJS',
-            'active' => 'what'
-         ),
-         'view' => $this->load->view('scripts/home/index', array(), true)
-      );
-
-      $this->load->view('layouts/bootstrap', $data);
+      $view = $this->getApiView('index');
+      $this->dispatch($view);
    }
 
    /**
@@ -29,19 +22,17 @@ class Docs extends CI_Controller {
    public function api() {
       $this->load->library('uri');
 
-      $path = 'scripts/docs/';
-      $api = $this->uri->segment(3);
+      $api = $this->uri->segment(3, 'index');
+      $view = $this->getApiView($api);
 
-      if (preg_match('/^src_/', $api)) {
-         $api = preg_replace('/^src_/', 'src/', $api);
-      }
-
-      if (file_exists(FCPATH."application/views/{$path}{$api}.php")) {
-         $view = $this->load->view($path.$api, array(), true);
-      } else {
+      if (empty($view)) {
          show_404();
       }
 
+      $this->dispatch($view);
+   }
+
+   protected function dispatch($view) {
       $data = array(
          'page' => array(
             'title' => 'Documentation | #BigBrotherJS',
@@ -51,5 +42,20 @@ class Docs extends CI_Controller {
       );
 
       $this->load->view('layouts/bootstrap', $data);
+   }
+
+   protected function getApiView($api) {
+      $view = false;
+      $path = 'scripts/docs/';
+
+      if (preg_match('/^src_/', $api)) {
+         $api = preg_replace('/^src_/', 'src/', $api);
+      }
+
+      if (file_exists(FCPATH . "application/views/{$path}{$api}.php")) {
+         $view = $this->load->view($path . $api, array(), true);
+      }
+
+      return $view;
    }
 }

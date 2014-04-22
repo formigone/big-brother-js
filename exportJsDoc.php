@@ -13,11 +13,18 @@
  *    3.7. Put file contents in /promo-site/application/views/scripts/docs/{filename}
  */
 
-$filename = 'BB.Frame.html';
-$in = file_get_contents('out/symbols/'.$filename);
+//$filename = 'BB.Frame.html';
+//$dir = 'symbols/';
+
+//$filename = 'index.html';
+//$dir = '';
+
+//$filename = 'src_BB_Session.js.html';
+//$dir = 'symbols/src/';
+
 
 function getNewFilename($filename) {
-   $filename = preg_replace('/\.htm.$/', '', $filename);
+   $filename = preg_replace('/\.htm.?$/', '', $filename);
    $filename = str_replace('.', '_', $filename);
 
    return $filename.'.php';
@@ -42,8 +49,22 @@ function transform($in) {
 
    $out = preg_replace('/\-fluid"/', '"', $out);
    $out = preg_replace('/<!\-\-.*?\-\->/', '', $out);
+   $out = preg_replace('/<footer class="footer">.*?<\/footer>/s', '', $out);
    $out = preg_replace('/<header class="header navbar navbar-fixed-top">.*?<\/header>/s', '', $out);
    $out = preg_replace('/span(\d+)/', 'col-md-$1', $out);
+   $out = preg_replace('/href="..\/..\//', 'href="', $out);
+   $out = preg_replace('/href="..\//', 'href="', $out);
+
+   $out = preg_replace_callback('/href="symbols\/(.*?).html"/', function($matches) {
+//         var_dump($matches);
+         $str = $matches[1];
+         $str = str_replace('.html', '', $str);
+         $str = 'href="/docs/api/'.str_replace('.', '_', $str).'"';
+
+         return $str;
+      }, $out);
+
+   $out = preg_replace('/src\/src/', 'src', $out);
    $out = preg_replace('/\n/', "", $out);
 
    $out = $const. $out .'</div></div>';
@@ -52,16 +73,45 @@ function transform($in) {
 }
 
 function save($filename, $data, $path) {
-   return file_put_contents($path.$filename, $data);
+   $fh = fopen($path.$filename, 'w');
+   if ($fh) {
+      fwrite($fh, $data);
+      fclose($fh);
+      echo "  saved {$path}{$filename}\n";
+   }
+//   return file_put_contents($path.$filename, $data);
 }
 
-$out = array(
-   'name' => getNewFilename($filename),
-   'data' => transform($in)
-);
 
-echo $out['data'], "\n\n- - - - - - - \n\n";
-echo "[{$out['name']}] \n\n- - - - - - - \n\n";
-echo "[$filename] \n\n";
+function extractDir(array $files, $dir) {
+   foreach ($files as $f) {
+      if (preg_match('/\.html$/', $f)) {
+         echo "processing {$dir}{$f}\n";
+         $in = file_get_contents('out/'.$dir.$f);
 
-echo save($out['name'], $out['data'], 'promo-site/application/views/scripts/docs/');
+
+         $out = array(
+            'name' => getNewFilename($f),
+            'data' => transform($in)
+         );
+
+         $src = '';
+
+         if (preg_match('/\/src\/$/', $dir)) {
+            $src = 'src/';
+            $out['name'] = str_replace('src_', '', $out['name']);
+         }
+
+         save($out['name'], $out['data'], 'promo-site/application/views/scripts/docs/'.$src);
+      }
+
+//   echo $out['data'], "\n\n- - - - - - - \n\n";
+//   echo "[{$out['name']}] \n\n- - - - - - - \n\n";
+//   echo "[$filename] \n\n";
+
+   }
+}
+
+extractDir(scandir('./out'), '');
+extractDir(scandir('./out/symbols'), 'symbols/');
+extractDir(scandir('./out/symbols/src'), 'symbols/src/');

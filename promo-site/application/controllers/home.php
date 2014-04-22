@@ -38,23 +38,23 @@ class Home extends CI_Controller {
       $this->load->view('layouts/bootstrap', $data);
    }
 
-   /**
-    *
-    */
-   public function docs() {
-      $this->load->library('uri');
-      $api = $this->uri->segment(1, 'test');
-      var_dump($api);exit;
-      $data = array(
-         'page' => array(
-            'title' => 'Documentation | #BigBrotherJS',
-            'active' => 'home'
-         ),
-         'view' => $this->load->view('scripts/home/docs', array(), true)
-      );
-
-      $this->load->view('layouts/bootstrap', $data);
-   }
+//   /**
+//    *
+//    */
+//   public function docs() {
+//      $this->load->library('uri');
+//      $api = $this->uri->segment(1, 'test');
+//      var_dump($api);exit;
+//      $data = array(
+//         'page' => array(
+//            'title' => 'Documentation | #BigBrotherJS',
+//            'active' => 'home'
+//         ),
+//         'view' => $this->load->view('scripts/home/docs', array(), true)
+//      );
+//
+//      $this->load->view('layouts/bootstrap', $data);
+//   }
 
    /**
     *
