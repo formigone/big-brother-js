@@ -80,7 +80,7 @@ class Home extends CI_Controller {
             'title' => 'Get Started | #BigBrotherJS',
             'active' => 'started'
          ),
-         'view' => $this->load->view('scripts/home/started', array(), true)
+         'view' => $this->load->view('scripts/home/download', array(), true)
       );
 
       $this->load->view('layouts/bootstrap', $data);

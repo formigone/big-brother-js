@@ -76,23 +76,15 @@
 
       <p class="pull-right">&nbsp; &nbsp;<span>&lt;/</span>BigBrother.js<span>&gt;</span></p>
 
-      <p class="pull-right">&nbsp;
-         <a href="https://github.com/formigone/big-brother-js">
-            <span class="glyphicon glyphicon-share"></span>GitHub
-         </a>
-      </p>
 
-      <p class="pull-right">&nbsp;
-         <a href="https://plus.google.com/u/0/b/102289667188884214558/102289667188884214558/about">
-            <span class="glyphicon glyphicon-share"></span>Google+
+      <div class="addthis_toolbox addthis_32x32_style addthis_default_style pull-right" style="margin: -6px 0 0">
+         <a class="addthis_button_twitter_follow" addthis:userid="bigbrotherjs"></a>
+         <a class="addthis_button_google_follow" addthis:userid="102289667188884214558" style="background: #fff;width:32px;padding:0;margin:0 10px;"></a>
+         <a href="https://github.com/formigone/big-brother-js" style="background: #fff;display: inline-block;margin: 0 2px;">
+            <img src="/assets/img/github-logo.png" style="width:32px">
          </a>
-      </p>
-
-      <p class="pull-right">&nbsp;
-         <a href="https://twitter.com/bigbrotherjs">
-            <span class="glyphicon glyphicon-share"></span>Twitter
-         </a>
-      </p>
+      </div>
+      <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-50c0f5850d6a6558"></script>
    </div>
 </footer>
 

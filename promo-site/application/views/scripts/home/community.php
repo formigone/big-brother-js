@@ -1,77 +1,41 @@
 <div class="container">
 
-   <h3 id="tour" class="subhead">Visual user session tracking</h3>
+   <h3 id="tour" class="subhead">Community</h3>
 
    <div class="row">
-      <div class="col-md-12">
-         <div id="slideshow" class="carousel slide">
-            <ol class="carousel-indicators">
-               <li data-target="#slideshow" data-slide-to="0" class="active"></li>
-               <li data-target="#slideshow" data-slide-to="1"></li>
-               <li data-target="#slideshow" data-slide-to="2"></li>
-               <li data-target="#slideshow" data-slide-to="3"></li>
-               <li data-target="#slideshow" data-slide-to="4"></li>
-            </ol>
-
-            <div class="carousel-inner">
-               <div class="item active">
-                  <img src="/assets/img/stock1.jpg">
-
-                  <div class="carousel-caption">
-                     Amazing photos provided by <a href="http://unsplash.com">unsplash.com</a>
-                  </div>
-               </div>
-               <div class="item">
-                  <img src="/assets/img/stock2.jpg">
-
-                  <div class="carousel-caption">
-                     Boat in Water
-                  </div>
-               </div>
-               <div class="item">
-                  <img src="/assets/img/stock3.jpg">
-
-                  <div class="carousel-caption">
-                     Millennium Bridge in London
-                  </div>
-               </div>
-               <div class="item">
-                  <img src="/assets/img/stock4.jpg">
-
-                  <div class="carousel-caption">
-                     Blurs
-                  </div>
-               </div>
-               <div class="item">
-                  <img src="/assets/img/stock5.jpg">
-
-                  <div class="carousel-caption">
-                     Santorini Greece
-                  </div>
-               </div>
-            </div>
-
-            <a class="left carousel-control" href="#slideshow" data-slide="prev">
-               <span class="glyphicon glyphicon-chevron-left"></span>
-            </a>
-            <a class="right carousel-control" href="#slideshow" data-slide="next">
-               <span class="glyphicon glyphicon-chevron-right"></span>
-            </a>
-         </div>
+      <div class="col-md-10 col-md-offset-1 text-center">
+         <p>Get involved with, and contribute to our community of developers and users. Feel free to ask and answer
+            questions through Google+ and/or Twitter, check out the source code and submit patches and bug reports at
+            GitHub.</p>
       </div>
    </div>
 
    <div class="row">
-      <div class="col-md-10 col-md-offset-1 text-center">
-         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
-            laoreet dolore magna. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit
-            lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in
-            vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et
-            accumsan.</p>
+      <div class="col-md-4 col-sm-6 benefit">
+         <div class="benefit-ball">
+            <span class="glyphicon glyphicon-comment"></span>
+         </div>
+         <h3>Google+</h3>
 
-         <p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat
-            facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum
-            claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius.</p>
+         <p>Stay connected by <a href="https://plus.google.com/u/0/b/102289667188884214558/102289667188884214558/posts">following us on Google+</a>. Get the latest news and updates, ask questions, and get help from other community users and developers.</p>
+      </div>
+
+      <div class="col-md-4 col-sm-6 benefit">
+         <div class="benefit-ball">
+            <span class="glyphicon glyphicon-share-alt"></span>
+         </div>
+         <h3>Twitter</h3>
+
+         <p>Be sure to <a href="https://twitter.com/bigbrotherjs">follow us on Twitter</a>. Get the latest news and updates, ask questions, and get help from other community users and developers.</p>
+      </div>
+
+      <div class="col-md-4 col-sm-6 benefit">
+         <div class="benefit-ball">
+            <span class="glyphicon glyphicon-compressed"></span>
+         </div>
+         <h3>GitHub</h3>
+
+         <p>From developers to developers. <a href="https://github.com/formigone/big-brother-js">Fork us on GitHub</a>. You can also file bug reports, request features, and submit pull requests of your own.</p>
       </div>
    </div>
 </div>
