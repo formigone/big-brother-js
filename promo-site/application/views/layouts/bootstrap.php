@@ -39,7 +39,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
          </button>
-         <a class="navbar-brand nav-link" href="/"><span>&lt;</span>BigBrotherJs<span>&gt;</span></a>
+         <a class="navbar-brand nav-link" href="/"><span>&lt;</span>BigBrother.js<span>&gt;</span></a>
       </div>
 
       <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -57,8 +57,8 @@
                <a href="/community">Community</a>
             </li>
             <li>
-               <a href="/get-started" class="navbar-btn">
-                  <span class="btn btn-warning btn-sm">Get started</span>
+               <a href="/download" class="navbar-btn">
+                  <span class="btn btn-warning btn-sm">Download</span>
                </a>
             </li>
          </ul>
@@ -74,7 +74,7 @@
          Copyright &copy; 2014 <a href="http://www.formigone.com">Formigone Software</a>. All rights reserved.
       </p>
 
-      <p class="pull-right">&nbsp; &nbsp;<span>&lt;/</span>BigBrotherJS<span>&gt;</span></p>
+      <p class="pull-right">&nbsp; &nbsp;<span>&lt;/</span>BigBrother.js<span>&gt;</span></p>
 
       <p class="pull-right">&nbsp;
          <a href="https://github.com/formigone/big-brother-js">

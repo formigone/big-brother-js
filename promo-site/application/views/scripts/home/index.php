@@ -2,85 +2,65 @@
    <div class="container">
       <img src="/assets/img/big-brother-js-logo.png"/>
 
-      <h1>Big Brother JS</h1>
-      <p>Visual user session tracking</p>
+      <h1>BigBrother.js</h1>
+      <p>Visual user monitoring & website analytics</p>
    </div>
 </div>
 
 <div class="container">
 
-   <h3 id="tour" class="subhead">Visual user session tracking</h3>
+   <h3 id="tour" class="subhead">Watch real users navigating your website</h3>
 
    <div class="row">
       <div class="col-md-12">
-         <div id="slideshow" class="carousel slide">
-            <ol class="carousel-indicators">
-               <li data-target="#slideshow" data-slide-to="0" class="active"></li>
-               <li data-target="#slideshow" data-slide-to="1"></li>
-               <li data-target="#slideshow" data-slide-to="2"></li>
-               <li data-target="#slideshow" data-slide-to="3"></li>
-               <li data-target="#slideshow" data-slide-to="4"></li>
-            </ol>
-
-            <div class="carousel-inner">
-               <div class="item active">
-                  <img src="/assets/img/stock1.jpg">
-
-                  <div class="carousel-caption">
-                     Amazing photos provided by <a href="http://unsplash.com">unsplash.com</a>
-                  </div>
-               </div>
-               <div class="item">
-                  <img src="/assets/img/stock2.jpg">
-
-                  <div class="carousel-caption">
-                     Boat in Water
-                  </div>
-               </div>
-               <div class="item">
-                  <img src="/assets/img/stock3.jpg">
-
-                  <div class="carousel-caption">
-                     Millennium Bridge in London
-                  </div>
-               </div>
-               <div class="item">
-                  <img src="/assets/img/stock4.jpg">
-
-                  <div class="carousel-caption">
-                     Blurs
-                  </div>
-               </div>
-               <div class="item">
-                  <img src="/assets/img/stock5.jpg">
-
-                  <div class="carousel-caption">
-                     Santorini Greece
-                  </div>
-               </div>
-            </div>
-
-            <a class="left carousel-control" href="#slideshow" data-slide="prev">
-               <span class="glyphicon glyphicon-chevron-left"></span>
-            </a>
-            <a class="right carousel-control" href="#slideshow" data-slide="next">
-               <span class="glyphicon glyphicon-chevron-right"></span>
-            </a>
-         </div>
+         <img src="/assets/img/mock-video-player.png" class="img-responsive" style="width: 80%; margin: 10px auto">
       </div>
    </div>
 
    <div class="row">
       <div class="col-md-10 col-md-offset-1 text-center">
-         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
-            laoreet dolore magna. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit
-            lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in
-            vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et
-            accumsan.</p>
+         <h2>What it is</h2>
+         <p>BigBrother.js is a free and open-source website analytics library. It focuses on providing <strong>visual data and analysis</strong> about your users. With BigBrother.js you can see <strong>click heatmaps</strong> for each page or page category of your website, as well as <strong>watch recordings of your users navigating each page of your website</strong>. BigBrother.js also allows you to watch aggregate recordings of users' sessions, so you can quickly see what the most common behavior and usage patterns are from real users and consumers of your site and application.</p>
 
-         <p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat
-            facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum
-            claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius.</p>
+         <hr/>
+         <h2>How it works</h2>
+         <p>By including BigBrother.js JavaScript library on your website, every action your user takes on your site is recorded and saved for later analysis and playback. Since the library is compact and small in size, as well as highly optmized for low memory usage and high performance, users will never notice that BigBrother.js is running on the background.</p>
+         <p>As more users come to your website and have their sessions recorded and tracked by BigBrother.js, you can then view click heatmaps for individual pages and page categories, as well as watch individual or aggregate session recordings from those users.</p>
+
+         <hr/>
+         <h2>How to use it</h2>
+         <p>Using the library could not be any simpler; all you need to do is drop in the JavaScript tag to import BigBrother.js into your page, sit back and wait for your users to come to your site, then view the reports generated by BigBrother.js.</p>
+
+         <div class="row">
+            <div class="col-md-4 col-sm-6 benefit">
+               <div class="benefit-ball">
+                  <span class="glyphicon glyphicon-screenshot"></span>
+               </div>
+               <h3>Tracking Code</h3>
+               <p>Include BigBrother.js JavaScript library on pages you want to track.</p>
+            </div>
+
+            <div class="col-md-4 col-sm-6 benefit">
+               <div class="benefit-ball">
+                  <span class="glyphicon glyphicon-user"></span>
+               </div>
+               <h3>Monitor Users</h3>
+               <p>Every user that comes to those pages is monitored quietly and discretely.</p>
+            </div>
+
+            <div class="col-md-4 col-sm-6 benefit">
+               <div class="benefit-ball">
+                  <span class="glyphicon glyphicon-play"></span>
+               </div>
+               <h3>Playback</h3>
+               <p>You can then view click heatmaps and watch session recordings.</p>
+            </div>
+         </div>
+
+         <hr/>
+         <h2>Get Started</h2>
+         <p>Ready to start tracking and monitoring your users like you work for the NSA?!</p>
+         <p><a href="/download" class="btn btn-lg btn-success"><span class="glyphicon glyphicon-download-alt"></span> Download BigBrother.js</a></p>
       </div>
    </div>
 </div>

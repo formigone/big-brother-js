@@ -4,7 +4,7 @@
 
 $route['live-demo'] = '/home/demo';
 $route['community'] = '/home/community';
-$route['get-started'] = '/home/getStarted';
+$route['download'] = '/home/download';
 
 $route['default_controller'] = 'home';
 $route['404_override'] = 'error';

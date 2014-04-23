@@ -74,7 +74,7 @@ class Home extends CI_Controller {
    /**
     *
     */
-   public function getStarted() {
+   public function download() {
       $data = array(
          'page' => array(
             'title' => 'Get Started | #BigBrotherJS',
