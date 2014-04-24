@@ -22,3 +22,23 @@
     border: 0;
     outline: none;
 }
+
+.videowrapper {
+    float: none;
+    clear: both;
+    width: 90%;
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    padding-bottom: 56.25%;
+    padding-top: 25px;
+    height: 0;
+}
+
+.videowrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}

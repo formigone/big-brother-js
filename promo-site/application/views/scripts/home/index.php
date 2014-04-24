@@ -12,8 +12,8 @@
    <h3 id="tour" class="subhead">Watch real users navigating your website</h3>
 
    <div class="row">
-      <div class="col-md-12">
-         <img src="/assets/img/mock-video-player.png" class="img-responsive" style="width: 80%; margin: 10px auto">
+      <div class="col-md-12 videowrapper">
+         <iframe src="//www.youtube.com/embed/6-hdc5aUHcI" frameborder="0" allowfullscreen></iframe>
       </div>
    </div>
 

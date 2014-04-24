@@ -70,26 +70,11 @@
 
 <script src="js/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<script>
-    $(".nav-link").click(function(e) {
-        e.preventDefault();
-        var link = $(this);
-        var href = link.attr("href");
-        $("html,body").animate({scrollTop: $(href).offset().top - 80}, 500);
-        link.closest(".navbar").find(".navbar-toggle:not(.collapsed)").click();
-    });
-</script>
 
-<?php if (getenv('APPLICATION_ENV') === 'development'): ?>
-    <script src="/lib/closure/goog/base.js"></script>
-    <script src="deps.js"></script>
-    <script src="app.js"></script>
-<?php else: ?>
-    <!--   <script src="app.comp.js"></script>-->
-<?php endif; ?>
-<!--<script src="bb.min.js"></script>-->
-<!--<script src="app.js"></script>-->
-<script>main(document.getElementById('demoToolbar'), document.body);</script>
+
+<script src="bb.min.js"></script>
+
+
 </body>
 </html>
 
