@@ -3,10 +3,12 @@ goog.provide('BB.RecPlayer');
 /**
  *
  * @param {BB.Recording=} recording
+ * @param {string=} mouseOn
+ * @param {string=} mouseOff
  *
  * @constructor
  */
-BB.RecPlayer = function(recording) {
+BB.RecPlayer = function(recording, mouseOn, mouseOff) {
     /** @type {BB.Recording|Object} */
     this.recording = recording || {};
 
@@ -52,16 +54,18 @@ BB.RecPlayer = function(recording) {
      */
     this._mouseOff = new Image();
 
-    this.init();
+    this.init(mouseOn, mouseOff);
 };
 
 /**
  *
+ * @param {string=} mouseOn
+ * @param {string=} mouseOff
  */
-BB.RecPlayer.prototype.init = function(){
+BB.RecPlayer.prototype.init = function(mouseOn, mouseOff) {
     // Preload and cache icons
-    this._mouseOn.src = '/img/mouse-on.png';
-    this._mouseOff.src = '/img/mouse-off.png';
+    this._mouseOn.src = mouseOn || '/assets/img/mouse-on.png';
+    this._mouseOff.src = mouseOff || '/assets/img/mouse-off.png';
 
     this.win.className = 'bb-win';
     this.viewport.className = 'bb-vp';
@@ -79,6 +83,8 @@ BB.RecPlayer.prototype.init = function(){
     this.win.appendChild(this.mouse);
     this.win.appendChild(this.viewport);
     this.viewport.appendChild(this.doc);
+
+    this.timer;
 };
 
 /**
@@ -118,8 +124,8 @@ BB.RecPlayer.prototype.tick = function() {
     this.frames.CURRENT++;
 
     if (this.frames.CURRENT < this.frames.TOTAL) {
-        setTimeout(this.tick.bind(this), this.ticks.FRAME_DUR_MILLI);
-}
+        this.timer = setTimeout(this.tick.bind(this), this.ticks.FRAME_DUR_MILLI);
+    }
 };
 
 
@@ -161,4 +167,8 @@ BB.RecPlayer.prototype.go = function(panel) {
         this.active = true;
         this.tick();
     }
+};
+
+BB.RecPlayer.prototype.stop = function(){
+    clearTimeout(this.timer);
 };

@@ -550,7 +550,7 @@ BB.Recording = function(title, url, res, fps, frames) {
   this.fps = fps;
   this.frames = frames
 };
-BB.RecPlayer = function(recording) {
+BB.RecPlayer = function(recording, mouseOn, mouseOff) {
   this.recording = recording || {};
   this.win = document.createElement("div");
   this.viewport = document.createElement("div");
@@ -561,11 +561,11 @@ BB.RecPlayer = function(recording) {
   this.active = false;
   this._mouseOn = new Image;
   this._mouseOff = new Image;
-  this.init()
+  this.init(mouseOn, mouseOff)
 };
-BB.RecPlayer.prototype.init = function() {
-  this._mouseOn.src = "/img/mouse-on.png";
-  this._mouseOff.src = "/img/mouse-off.png";
+BB.RecPlayer.prototype.init = function(mouseOn, mouseOff) {
+  this._mouseOn.src = mouseOn || "/assets/img/mouse-on.png";
+  this._mouseOff.src = mouseOff || "/assets/img/mouse-off.png";
   this.win.className = "bb-win";
   this.viewport.className = "bb-vp";
   this.doc.className = "bb-doc";
@@ -579,7 +579,8 @@ BB.RecPlayer.prototype.init = function() {
   this.mouse.src = this._mouseOff.src;
   this.win.appendChild(this.mouse);
   this.win.appendChild(this.viewport);
-  this.viewport.appendChild(this.doc)
+  this.viewport.appendChild(this.doc);
+  this.timer
 };
 BB.RecPlayer.prototype.setRecording = function(recording) {
   this.recording = recording;
@@ -599,7 +600,7 @@ BB.RecPlayer.prototype.tick = function() {
   }
   this.frames.CURRENT++;
   if(this.frames.CURRENT < this.frames.TOTAL) {
-    setTimeout(this.tick.bind(this), this.ticks.FRAME_DUR_MILLI)
+    this.timer = setTimeout(this.tick.bind(this), this.ticks.FRAME_DUR_MILLI)
   }
 };
 BB.RecPlayer.prototype.go = function(panel) {
@@ -626,6 +627,9 @@ BB.RecPlayer.prototype.go = function(panel) {
     this.active = true;
     this.tick()
   }
+};
+BB.RecPlayer.prototype.stop = function() {
+  clearTimeout(this.timer)
 };
 BB.Session = function(backendUrl, fps, title, url) {
   this.backendUrl = backendUrl;

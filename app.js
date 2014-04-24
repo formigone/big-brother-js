@@ -1,3 +1,5 @@
+goog.provide('BB.go');
+
 goog.require('BB.Session');
 goog.require('BB.RecPlayer');
 
@@ -37,7 +39,7 @@ var main = function(rootPanel, playerPanel) {
             var xhr = new XMLHttpRequest();
 
             if (filename.length > 1) {
-                xhr.open('GET', '/recordings/' + filename, true);
+                xhr.open('GET', '/assets/recordings/' + filename, true);
                 xhr.onreadystatechange = function(res) {
                     var _xhr = res.target;
                     var data;
@@ -102,12 +104,13 @@ var main = function(rootPanel, playerPanel) {
     confBtn(btns.stop, 'Stop', sess.stop);
     confBtn(btns.upload, 'Upload', sess.upload);
     confBtn(btns.play, 'Play', function(){
+        player.stop();
         player.go(container);
     });
 
-    rootPanel.appendChild(btns.start);
-    rootPanel.appendChild(btns.stop);
-    rootPanel.appendChild(btns.upload);
+//    rootPanel.appendChild(btns.start);
+//    rootPanel.appendChild(btns.stop);
+//    rootPanel.appendChild(btns.upload);
     rootPanel.appendChild(btns.play);
     rootPanel.appendChild(sel);
 
@@ -119,3 +122,5 @@ var main = function(rootPanel, playerPanel) {
     rootPanel.appendChild(desc.fps);
     rootPanel.appendChild(desc.frames);
 };
+
+goog.exportSymbol('main', main);

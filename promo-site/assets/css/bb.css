@@ -3,7 +3,8 @@
     overflow: auto;
     border: 1px solid #aaa;
     box-shadow: 0 10px 10px #333;
-    margin: 10px 10px 25px;
+    margin: 10px auto 25px;
+    width: 90% !important;
 }
 
 .bb-mouse {
