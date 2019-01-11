@@ -3,6 +3,9 @@ Big Brother JS
 
 Visual user session tracking - mouse movement and scrolling recording and playback
 
+[![Big Brother JS](https://img.youtube.com/vi/6-hdc5aUHcI/0.jpg)](https://www.youtube.com/watch?v=6-hdc5aUHcI)
+
+
 Todo
 ----
 
